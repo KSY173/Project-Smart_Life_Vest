@@ -1,4 +1,4 @@
-# Smart Auto-Inflating Life Vest
+# Smart Life Vest - Arduino Code
 
 본 프로젝트는 GPS, IMU, ECG, PPG, 온도 센서 데이터를 통합하여 사용자의 위치, 방향, 생체 신호, 자세 변화를 수집하고 BLE를 통해 앱 또는 외부 장치로 상태 정보를 전송합니다.
 
