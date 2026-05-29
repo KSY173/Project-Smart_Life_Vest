@@ -347,7 +347,7 @@ tempC = simTemp;
 
 ---
 
-### 9.3 GPS 손실 판단 로직 확인 필요
+### 8.3 GPS 손실 판단 로직 확인 필요
 
 현재 코드는 GPS가 유효하든 유효하지 않든 `gpsCount++`가 증가합니다.  
 따라서 GPS가 정상적으로 수신되는 상황에서도 일정 시간이 지나면 DR 모드로 진입할 수 있습니다.
@@ -356,7 +356,7 @@ tempC = simTemp;
 
 ---
 
-### 9.4 방향 문자열 오타 가능성
+### 8.4 방향 문자열 오타 가능성
 
 방향 문자열 중 남동쪽이 일반적으로 `SE`인데, 현재 코드에서는 `ES`로 작성되어 있습니다.
 
@@ -368,7 +368,7 @@ strcpy(direction, "ES");
 
 ---
 
-### 9.5 BLE UUID 확인 필요
+### 8.5 BLE UUID 확인 필요
 
 현재 BLE UUID는 표준 Heart Rate Service UUID를 사용하고 있습니다.
 
@@ -381,7 +381,7 @@ strcpy(direction, "ES");
 
 ---
 
-### 9.6 `snprintf` 인자 개수 확인 필요
+### 8.6 `snprintf` 인자 개수 확인 필요
 
 DR 결과 전송 부분에서 포맷 문자열에 비해 전달 인자가 하나 더 들어가 있습니다.
 
@@ -395,7 +395,7 @@ snprintf(drPacket, sizeof(drPacket),
 
 ---
 
-### 9.7 `A7` 사용 가능 여부 확인 필요
+### 8.7 `A7` 사용 가능 여부 확인 필요
 
 코드에 다음 구문이 있습니다.
 
@@ -408,7 +408,7 @@ randomSeed(analogRead(A7));
 
 ---
 
-## 10. Suggested Repository Structure
+## 9. Suggested Repository Structure
 
 ```text
 Smart-Auto-Inflating-LifeVest/
@@ -427,7 +427,7 @@ Smart-Auto-Inflating-LifeVest/
 
 ---
 
-## 11. Future Improvements
+## 10. Future Improvements
 
 - GPS 손실 판단 로직 개선
 - 실제 TMP102 온도값 사용
@@ -441,7 +441,7 @@ Smart-Auto-Inflating-LifeVest/
 
 ---
 
-## 12. Summary
+## 11. Summary
 
 이 코드는 GPS, IMU, ECG, PPG, 온도 센서, 모터 제어, BLE 통신을 통합한 자동 팽창 구명조끼 제어 코드입니다.  
 사용자의 생체 신호와 위치 정보를 실시간으로 수집하고, 심박 기반 위험 상태가 일정 시간 이상 지속되면 모터를 작동시켜 팽창 동작을 수행합니다.
