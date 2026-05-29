@@ -200,42 +200,38 @@ LAT:36.981200,LON:126.019300,COMB_BPM:72.4,TEMP:33.20,predictedDirection:85.23,A
 
 ## 2. Hardware Components
 
-| Component | Purpose |
+| Component | 용도 |
 |---|---|
-| Arduino-compatible board | Main controller |
-| GPS module | Location tracking |
-| ICM-20948 IMU | Acceleration, gyro, tilt, direction estimation |
-| MAX30102 / MAX30105 PPG sensor | PPG-based heart rate measurement |
-| AD8232 ECG sensor | ECG-based heart rate measurement |
-| TMP102 temperature sensor | Body or ambient temperature measurement |
-| L298N motor driver | Motor or linear actuator control |
-| Motor / Linear actuator | Life vest inflation mechanism |
-| BLE-supported board/module | Wireless data transmission |
+| Arduino nano esp32 | 전체 시스템을 제어하는 메인 컨트롤러 |
+| GNSS 모듈 | 현재 위치 정보 추적 |
+| ICM-20948 IMU | 가속도, 각속도, 기울기, 이동 방향 추정 |
+| MAX30102 PPG 센서 | PPG 신호 기반 심박수 측정 |
+| AD8232 ECG 센서 | ECG 신호 기반 심박수 측정 |
+| TMP102 온도 센서 | 체온 또는 주변 온도 측정 |
+| L298N 모터 드라이버 | 모터 또는 리니어 액추에이터 구동 제어 |
+| 모터 / 리니어 액추에이터 | 구명조끼 팽창 메커니즘 구동 |
+| BLE 모 | 무선 데이터 전송 |
 
 ---
 
 ## 3. Pin Configuration
 
-| Pin | Connected Module | Function |
+| Pin | Connected Module | 기능 |
 |---|---|---|
-| A0 | AD8232 ECG | ECG analog signal input |
-| D2 | AD8232 LO+ | ECG lead-off detection input |
-| D3 | AD8232 LO- | ECG lead-off detection input |
-| D7 | L298N IN1 | Motor direction control |
-| D8 | L298N IN2 | Motor direction control |
-| D9 | L298N ENA | Motor PWM speed control |
-| I2C SDA/SCL | ICM-20948, MAX30102, TMP102 | Sensor communication |
-| Serial1 RX/TX | GPS module | GPS data reception |
-
-> 현재 코드에서는 GPS `Serial1.begin(9600, SERIAL_8N1, 2, 3)` 설정과 ECG lead-off 핀 `D2`, `D3`이 겹칠 가능성이 있습니다. 사용하는 보드에 따라 핀 충돌 여부를 반드시 확인해야 합니다.
+| A0 | AD8232 ECG | ECG 아날로그 신호 입력 |
+| D2 | AD8232 LO+ | ECG 리드오프 감지 입력 |
+| D3 | AD8232 LO- | ECG 리드오프 감지 입력 |
+| D7 | L298N IN1 | 모터 회전 방향 제어 |
+| D8 | L298N IN2 | 모터 회전 방향 제어 |
+| D9 | L298N ENA | 모터 PWM 속도 제어 |
+| I2C SDA/SCL | ICM-20948, MAX30102, TMP102 | 센서 데이터 통신 |
+| Serial1 RX/TX | GPS module | GPS 데이터 수신 |
 
 ---
 
 ## 4. Software Requirements
 
-Arduino IDE 또는 PlatformIO 환경에서 사용할 수 있습니다.
-
-필요한 주요 라이브러리는 다음과 같습니다.
+Arduino IDE에서 필요한 주요 라이브러리는 다음과 같습니다.
 
 - `TinyGPSPlus`
 - `ICM_20948`
@@ -252,62 +248,62 @@ Arduino IDE 또는 PlatformIO 환경에서 사용할 수 있습니다.
 ## 5. Operation Flow
 
 ```text
-System Start
+시스템 시작
    ↓
-Initialize Serial, Wire, GPS, IMU, PPG, Motor, BLE
+Serial, Wire, GPS, IMU, PPG, Motor, BLE 초기화
    ↓
-Collect GPS Data
+GPS 데이터 수집
    ↓
-Read ECG / PPG / Temperature / IMU Tilt
+ECG / PPG / 온도 / IMU 기울기 데이터 읽기
    ↓
-After 20 seconds, start baseline collection
+20초 후 baseline 수집 시작
    ↓
-After 50 seconds, calculate baseline values
+50초 후 baseline 값 계산
    ↓
-Compare current combined BPM with baseline threshold
+현재 통합 BPM과 baseline 기준값 비교
    ↓
-If low BPM condition continues for 6 seconds
+낮은 BPM 상태가 6초 동안 지속될 경우
    ↓
-Set WARNING = YES
+WARNING = YES 설정
    ↓
-If low BPM condition continues for 10 seconds
+낮은 BPM 상태가 10초 동안 지속될 경우
    ↓
-Set ACTIVE = YES
+ACTIVE = YES 설정
    ↓
-Run motor / actuator
+모터 / 액추에이터 작동
    ↓
-Send sensor and status data through BLE Notify
+BLE Notify를 통해 센서 및 상태 데이터 전송
 ```
 
 ---
 
 ## 6. BLE Packet Format
 
-The device periodically sends a comma-separated text packet through BLE Notify.
+이 장치는 BLE Notify를 통해 쉼표로 구분된 텍스트 패킷을 주기적으로 전송합니다. 
 
 ```text
 LAT:<latitude>,LON:<longitude>,COMB_BPM:<combined_bpm>,TEMP:<temperature>,predictedDirection:<direction_angle>,ACTIVE:<YES/NO>,WARNING:<YES/NO>,BASE_ECG:<ecg_baseline>,BASE_PPG:<ppg_baseline>,BASE_TEMP:<temp_baseline>,BASE_COMB_BPM:<combined_baseline>,MADEANGLE:<direction_string>,PPG_BPM:<ppg_bpm>
 ```
 
-The mobile application can parse this packet by splitting the string using commas and colons.
+어플리케이션은 쉼표와 콜론을 기준으로 문자열을 분리하여 이 패킷을 쉽게 파싱할 수 있습니다. 
 
 ---
 
 ## 7. Important Code Parameters
 
-| Parameter | Value | Meaning |
+| 파라미터 | 수치 값 | 동 |
 |---|---:|---|
-| `GPS_PRINT_INTERVAL` | 2000 ms | GPS check interval |
-| `GPS_LOSS_THRESHOLD` | 10 | GPS loss check count threshold |
-| `DR_DURATION_MS` | 60000 ms | IMU-based DR collection time |
-| `sensorIntervalMs` | 100 ms | ECG, PPG, temperature, tilt read interval |
-| `MAX_SAMPLES` | 600 | Maximum baseline sample count |
-| `wECG` | 0.7 | ECG weight for combined BPM |
-| `wPPG` | 0.3 | PPG weight for combined BPM |
-| `PPG_IR_FINGER_THRESHOLD` | 15000 | PPG finger/contact detection threshold |
-| `ECG_DYNAMIC_THRESHOLD_DEFAULT` | 10 | ECG dynamic peak detection threshold |
-| `PPG_AC_THRESH` | 200 | PPG AC peak detection threshold |
-| `motorExtend` speed | 220 | PWM motor speed |
+| `GPS_PRINT_INTERVAL` | 2000 ms | GPS 확인 주기 |
+| `GPS_LOSS_THRESHOLD` | 10 | GPS 손실 판단 기준 횟수 |
+| `DR_DURATION_MS` | 60000 ms | IMU 기반 Dead Reckoning 데이터 수집 시간 |
+| `sensorIntervalMs` | 100 ms | ECG, PPG, 온도, 기울기 데이터 읽기 주기 |
+| `MAX_SAMPLES` | 600 | baseline 수집 최대 샘플 개수 |
+| `wECG` | 0.7 | 통합 BPM 계산 시 ECG 가중치 |
+| `wPPG` | 0.3 | 통합 BPM 계산 시 PPG 가중치 |
+| `PPG_IR_FINGER_THRESHOLD` | 15000 | PPG 손가락/접촉 감지 기준값 |
+| `ECG_DYNAMIC_THRESHOLD_DEFAULT` | 10 | ECG 동적 피크 감지 기준값 |
+| `PPG_AC_THRESH` | 200 | PPG AC 피크 감지 기준값 |
+| `motorExtend` speed | 220 | 모터 PWM 구동 속도 |
 
 ---
 
@@ -408,26 +404,7 @@ randomSeed(analogRead(A7));
 
 ---
 
-## 9. Suggested Repository Structure
-
-```text
-Smart-Auto-Inflating-LifeVest/
-├── README.md
-├── arduino/
-│   └── arduino.ino
-├── docs/
-│   └── system_flow.png
-├── images/
-│   ├── hardware_overview.jpg
-│   ├── app_screen.jpg
-│   └── sensor_module.jpg
-└── videos/
-    └── demo.mp4
-```
-
----
-
-## 10. Future Improvements
+## 8. Future Improvements
 
 - GPS 손실 판단 로직 개선
 - 실제 TMP102 온도값 사용
@@ -439,12 +416,5 @@ Smart-Auto-Inflating-LifeVest/
 - 앱에서 `WARNING`, `ACTIVE`, `MADEANGLE` 상태 시각화
 - 팽창 모듈 작동 로그 저장
 
----
 
-## 11. Summary
-
-이 코드는 GPS, IMU, ECG, PPG, 온도 센서, 모터 제어, BLE 통신을 통합한 자동 팽창 구명조끼 제어 코드입니다.  
-사용자의 생체 신호와 위치 정보를 실시간으로 수집하고, 심박 기반 위험 상태가 일정 시간 이상 지속되면 모터를 작동시켜 팽창 동작을 수행합니다.
-
-다만 현재 코드에는 테스트용 시뮬레이션 값, 핀 충돌 가능성, GPS 손실 판단 방식 등 실제 하드웨어 적용 전에 확인해야 할 부분이 포함되어 있습니다.
 
