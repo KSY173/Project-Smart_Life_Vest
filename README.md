@@ -1,6 +1,5 @@
 # Smart Life Vest: 자동 팽창 구명조끼
 
-```html
 <p>
   <img src="https://img.shields.io/badge/LANGUAGE-C%2FC%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/LANGUAGE-Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"/>
@@ -28,7 +27,6 @@
   <img src="https://img.shields.io/badge/ACTUATOR-Linear%20Actuator-6A1B9A?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/PLATFORM-Android%20%7C%20iOS-3DDC84?style=for-the-badge"/>
 </p>
-```
 
 본 프로젝트는 잠수 인력 및 수상 활동자의 안전을 높이기 위해 개발한 **자동 팽창 스마트 구명조끼 시스템**입니다.  
 구명조끼에 부착된 센서와 제어부가 사용자의 생체 신호, 체온, 위치 정보, 이동 방향 정보를 수집하고, 위험 상태가 지속될 경우 자동으로 팽창 모듈을 구동합니다. 동시에 BLE를 통해 스마트폰 어플리케이션으로 사용자 상태를 전송하여 외부 감독자가 실시간으로 모니터링할 수 있도록 구성했습니다.
