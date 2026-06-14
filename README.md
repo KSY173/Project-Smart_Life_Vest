@@ -12,10 +12,10 @@
   <img src="https://img.shields.io/badge/SENSOR-AD8232%20ECG-FF6B6B?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/SENSOR-MAX30102%20PPG-FF8C42?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/SENSOR-TMP102%20Temperature-F4B400?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/SENSOR-ICM--20948%20IMU-34A853?style=for-the-badge"/>
 </p>
 
 <p>
+  <img src="https://img.shields.io/badge/SENSOR-ICM--20948%20IMU-34A853?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/SENSOR-GNSS%20Module-00ACC1?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/MOTOR%20DRIVER-L298N-8E44AD?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/ACTUATOR-Linear%20Actuator-6A1B9A?style=for-the-badge"/>
