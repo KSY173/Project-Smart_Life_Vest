@@ -363,7 +363,7 @@ BLE Notify를 통해 Flutter 앱으로 상태 데이터 전송
 
 ---
 
-## 10. Future Improvements
+## 9. Future Improvements
 
 - BLE 커스텀 서비스 UUID 적용
 - BLE 패킷을 JSON 또는 바이너리 포맷으로 개선
