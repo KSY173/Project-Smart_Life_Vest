@@ -9,12 +9,6 @@
 
 <p>
   <img src="https://img.shields.io/badge/MCU-Arduino%20Nano%20ESP32-00979D?style=for-the-badge&logo=arduino&logoColor=white"/>
-  <img src="https://img.shields.io/badge/MAP-Google%20Maps-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white"/>
-  <img src="https://img.shields.io/badge/STATE%20MANAGEMENT-Provider-7952B3?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/CHART-fl__chart-F06292?style=for-the-badge"/>
-</p>
-
-<p>
   <img src="https://img.shields.io/badge/SENSOR-AD8232%20ECG-FF6B6B?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/SENSOR-MAX30102%20PPG-FF8C42?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/SENSOR-TMP102%20Temperature-F4B400?style=for-the-badge"/>
@@ -25,7 +19,6 @@
   <img src="https://img.shields.io/badge/SENSOR-GNSS%20Module-00ACC1?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/MOTOR%20DRIVER-L298N-8E44AD?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/ACTUATOR-Linear%20Actuator-6A1B9A?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/PLATFORM-Android%20%7C%20iOS-3DDC84?style=for-the-badge"/>
 </p>
 
 본 프로젝트는 잠수 인력 및 수상 활동자의 안전을 높이기 위해 개발한 **자동 팽창 스마트 구명조끼 시스템**입니다.  
