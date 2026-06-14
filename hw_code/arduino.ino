@@ -4,13 +4,9 @@
   - Actuator: L298N motor driver
   - Communication: BLE notify packet for Flutter main.dart
 
-  BLE packet keys used by Flutter:
+  Flutter에서 사용한 BLE packet:
   LAT,LON,COMB_BPM,TEMP,PredictedDirection,ACTIVE,WARNING,
   BASE_TEMP,BASE_COMB_BPM,MADEANGLE,PPG_BPM
-
-  Hardware note:
-  - GPS pins are separated from AD8232 LO+/LO- pins to avoid pin conflict.
-  - Change GPS_RX_PIN/GPS_TX_PIN if your wiring is different.
 */
 
 #include <Arduino.h>
@@ -38,7 +34,6 @@
 #define IN1_PIN       7
 #define IN2_PIN       8
 
-// IMPORTANT: Do not use the same pins as LO_PLUS_PIN/LO_MINUS_PIN.
 #define GPS_RX_PIN    16
 #define GPS_TX_PIN    17
 
