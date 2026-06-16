@@ -31,7 +31,7 @@
 
 ## 1. Project Overview
 
-* 2025 SMU 캡스톤 경진대회 우수상 수상
+* 2025 SMU(숙명여대) 캡스톤 경진대회 우수상 수상
 
 ### Background
 
