@@ -63,7 +63,7 @@ The goals of this system are as follows:
 The overall system consists of four main parts: the **sensor unit**, **control unit**, **inflation module**, and **smartphone application**.
 
 <p align="center">
-  <img src="./imgs/whole_logic.png" width="850"><br>
+  <img src="./imgs/whole_logic_eng.png" width="850"><br>
   <b>Overall System Architecture</b>
 </p>
 
