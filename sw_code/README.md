@@ -1,5 +1,7 @@
 # Smart Life Vest - Flutter App
 
+[English README](./README.eng.md)
+
 본 Flutter 앱은 자동팽창식 스마트 구명조끼에서 BLE Notify로 전송되는 센서 데이터를 수신하고, 사용자의 생체 신호, 위험 상태, 위치, 이동 방향 정보를 시각화하는 모바일 애플리케이션입니다.
 
 앱은 BLE 장치 스캔 및 연결, COMB_BPM/체온 그래프 표시, PPG 기반 실시간 심박수 표시, BLE GPS 위치 지도 표시, WARNING/ACTIVE 위험 팝업 알림 기능을 제공합니다.
