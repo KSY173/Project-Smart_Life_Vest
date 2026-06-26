@@ -62,6 +62,13 @@
 
 전체 시스템은 크게 **센서부**, **제어부**, **팽창 모듈**, **스마트폰 어플리케이션**으로 구성됩니다.
 
+<p align="center">
+  <img src="./imgs/whole_logic.png" width="850"><br>
+  <b>전체 시스템 동작 구조</b>
+</p>
+
+아래는 전체 데이터 흐름을 텍스트로 정리한 구조입니다.
+
 ```text
 [Sensor Unit]
 ECG / PPG / Temperature / IMU / GNSS
@@ -163,6 +170,23 @@ BLE Notify를 통해 다음과 같은 정보를 앱으로 전송합니다.
 ---
 
 ## 4. Hardware Components
+
+### 4.1 Prototype Images
+
+하드웨어 구성과 구명조끼에 센서 및 팽창 모듈을 부착한 최종 프로토타입은 다음과 같습니다.
+
+<p align="center">
+  <img src="./imgs/hardware.jpg" width="750"><br>
+  <b>하드웨어 제어부 및 센서 구성</b>
+</p>
+
+<p align="center">
+  <img src="./imgs/jacket_sensors.jpg" width="420">
+  <img src="./imgs/jacket_whole.jpg" width="420"><br>
+  <b>센서가 부착된 구명조끼와 전체 완성품</b>
+</p>
+
+### 4.2 Component List
 
 | Component | Role |
 |---|---|
