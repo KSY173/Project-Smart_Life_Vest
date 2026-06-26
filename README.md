@@ -182,7 +182,7 @@ BLE Notify를 통해 다음과 같은 정보를 앱으로 전송합니다.
 
 <p align="center">
   <img src="./imgs/jacket_sensors.jpg" width="420">
-  <img src="./imgs/jacket_whole.jpeg" width="420"><br>
+  <img src="./imgs/jacket_whole.jpg" width="420"><br>
   <b>센서가 부착된 구명조끼와 전체 완성품</b>
 </p>
 
