@@ -27,6 +27,11 @@ Automatic Inflatable Smart Life Vest
 
 ## 2. Main Features
 
+> Note: The Flutter application was developed with a Korean user interface.
+> Therefore, the screenshots below show the actual Korean app screens, while the captions and explanations in this README are provided in English.
+
+---
+
 ### 2.1 BLE Scan and Connection
 
 The app scans and connects to BLE devices using `flutter_blue_plus`.
@@ -39,6 +44,11 @@ const String characteristicUuid = '00002a37-0000-1000-8000-00805f9b34fb';
 ```
 
 After connection, the app enables Characteristic Notify and receives sensor data transmitted from the Arduino or ESP32-based life vest device.
+
+<p align="center">
+  <img src="../imgs/app_bluetooth.jpg" width="320"><br>
+  <b>Bluetooth Connection Required Screen</b>
+</p>
 
 ---
 
@@ -79,6 +89,11 @@ Sensor records are stored in `sensorHistory` at approximately 5-second intervals
 final List<SensorData> sensorHistory = [];
 ```
 
+<p align="center">
+  <img src="../imgs/app_graph.jpg" width="320"><br>
+  <b>Real-Time Sensor Graph Screen</b>
+</p>
+
 ---
 
 ### 2.4 Warning and Active Popup
@@ -92,7 +107,7 @@ When `WARNING:YES` or `ACTIVE:YES` is received from BLE data, a risk popup is di
 | `WARNING:NO`, `ACTIVE:NO` | Normal state                           | Popup automatically dismissed |
 
 The popup can be closed by the user.
-After the user manually closes it, a cooldown logic prevents the popup from being displayed again for 5 seconds.
+After the user manually closes it, cooldown logic prevents the popup from being displayed again for 5 seconds.
 
 ```dart
 void closePopup() {
@@ -101,6 +116,12 @@ void closePopup() {
   ...
 }
 ```
+
+<p align="center">
+  <img src="../imgs/app_warning.jpg" width="320">
+  <img src="../imgs/app_active.jpg" width="320"><br>
+  <b>WARNING and ACTIVE Popup Screens</b>
+</p>
 
 ---
 
@@ -125,6 +146,11 @@ MarkerId('lifevest_ble_location')
 
 The `PredictedDirection` value is also used as the marker rotation value, and the `MADEANGLE` value is displayed as text at the top of the map.
 
+<p align="center">
+  <img src="../imgs/app_map.jpg" width="320"><br>
+  <b>BLE GPS Location Map Screen</b>
+</p>
+
 ---
 
 ### 2.6 Real-Time Heart Rate Screen
@@ -141,6 +167,11 @@ The display format is as follows.
 72.4 BPM
 ```
 
+<p align="center">
+  <img src="../imgs/app_bpm_game.jpg" width="320"><br>
+  <b>Real-Time PPG Heart Rate Screen</b>
+</p>
+
 ---
 
 ### 2.7 Baseline Measurement Result
@@ -156,6 +187,12 @@ The displayed values are:
 baselineCombinedBpmMeanResult
 baselineBodyTemperatureResult
 ```
+
+<p align="center">
+  <img src="../imgs/app_baseline.jpg" width="320"><br>
+  <b>Home Screen After Baseline Measurement</b>
+</p>
+
 
 ---
 
