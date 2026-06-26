@@ -1,5 +1,7 @@
 # 🦺Smart Life Vest: 자동 팽창 구명조끼
 
+[English README](./README.eng.md)
+
 <p>
   <img src="https://img.shields.io/badge/LANGUAGE-C%2FC%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
   <img src="https://img.shields.io/badge/LANGUAGE-Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"/>
