@@ -1,5 +1,7 @@
 # Smart Life Vest - Arduino 
 
+[English README](./README.eng.md)
+
 본 프로젝트는 자동 팽창식 스마트 구명조끼의 임베디드 펌웨어입니다. GPS, IMU, ECG, PPG, 온도 센서 데이터를 통합하여 사용자의 위치, 이동 방향, 생체 신호, 위험 상태를 판단하고, BLE Notify를 통해 Flutter 앱으로 상태 정보를 전송합니다.
 
 ---
