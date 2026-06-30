@@ -1,4 +1,4 @@
-# 🦺Smart Life Vest: 자동 팽창 구명조끼
+# 🦺Sensor-based Automatic Inflatable Life Vest: 자동 팽창 구명조끼
 
 [English README](./README.eng.md)
 
