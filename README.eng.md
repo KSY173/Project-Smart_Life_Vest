@@ -1,4 +1,4 @@
-# 🦺 Smart Life Vest: Automatic Inflatable Life Vest
+# 🦺 Sensor-based Automatic Inflatable Life Vest
 
 <p>
   <img src="https://img.shields.io/badge/LANGUAGE-C%2FC%2B%2B-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
